@@ -1,332 +1,144 @@
- /* GENERAL SETTINGS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Color Palette */
+:root {
+    --mist-blue: #A8D0E6;
+    --coral-pink: #FF6F61;
+    --white: #F9F9F9;
+    --dark: #1A1A2E;
 }
+
+/* Global Styles */
 body {
+    margin: 0;
     font-family: 'Poppins', sans-serif;
-    color: #1a1a3d;
-    background: #fff;
+    background: var(--white);
+    color: var(--dark);
     scroll-behavior: smooth;
 }
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
-/* HEADER */
-header {
-    position: fixed;
-    width: 100%;
-    background: #ffc0cb; /* Pink navbar */
-    padding: 15px 0;
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; padding: 0; margin: 0; }
+
+/* Navbar */
+nav {
+    position: sticky;
     top: 0;
-    left: 0;
-    z-index: 1000;
-    transition: 0.3s all;
-}
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-header .logo {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-header .logo img {
-    height: 40px;
-    margin-right: 10px;
-}
-header nav ul {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-}
-header nav ul li a {
-    text-decoration: none;
-    color: #1a1a3d;
-    font-weight: 500;
-    position: relative;
-}
-header nav ul li a::after {
-    content: '';
-    display: block;
-    height: 2px;
-    background: #b3d9ff; /* Mist Blue underline */
-    width: 0;
-    transition: width 0.3s;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-}
-header nav ul li a:hover::after {
-    width: 100%;
-}
-
-/* HERO SECTION */
-.hero {
-    position: relative;
-    min-height: 90vh;
+    background: var(--white);
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    background: linear-gradient(135deg, #b3d9ff, #ffc0cb);
-    padding-top: 80px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 100;
 }
-.hero-bg {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: url('../images/placeholder-hero.jpg') center/cover no-repeat;
-    opacity: 0.2;
-}
-.hero-content h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-bottom: 20px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 1s forwards;
-}
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 1s forwards;
-    animation-delay: 0.5s;
-}
-.hero .btn {
-    padding: 12px 30px;
-    background: #ff69b4; /* Pink button */
-    color: #fff;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 1s forwards;
-    animation-delay: 1s;
-}
-.hero .btn:hover {
-    background: #66b3ff; /* Mist Blue hover */
-    transform: scale(1.05);
-}
-
-/* PARTICLES */
-.particles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0; left: 0;
-    pointer-events: none;
-    overflow: hidden;
-}
-.particle {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background: radial-gradient(circle, #ff69b4 0%, #b3d9ff 100%);
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    animation: float 10s linear infinite;
-    opacity: 0.7;
-}
-.particle:nth-child(1) { animation-delay: 0s; --x:50vw; --y:0vh; }
-.particle:nth-child(2) { animation-delay: 2s; --x:20vw; --y:10vh; }
-.particle:nth-child(3) { animation-delay: 4s; --x:80vw; --y:20vh; }
-.particle:nth-child(4) { animation-delay: 6s; --x:40vw; --y:30vh; }
-.particle:nth-child(5) { animation-delay: 8s; --x:70vw; --y:50vh; }
-@keyframes float {
-    0% { transform: translate(var(--x), var(--y)) scale(0.5); opacity: 0.7; }
-    50% { transform: translate(calc(var(--x)+20px), calc(var(--y)-50px)) scale(1); opacity:1; }
-    100% { transform: translate(calc(var(--x)-20px), calc(var(--y)-100px)) scale(0.5); opacity:0.7; }
-}
-
-/* FEATURES SECTION */
-.features {
-    padding: 60px 0;
-    background: #ffe6f0;
-}
-.features h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 1s forwards;
-}
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-}
-.feature-card {
-    background: #fff0f5;
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 1s forwards;
-}
-.feature-card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(102,179,255,0.3);
-}
-.feature-card .icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-/* COLLECTION SECTION */
-.collection {
-    padding: 60px 0;
-    background: linear-gradient(135deg, #b3d9ff, #ffc0cb);
-    text-align: center;
-}
-.collection h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 1s forwards;
-}
-.collection p {
-    margin-bottom: 30px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 1s forwards;
-    animation-delay: 0.5s;
-}
-.collection .btn {
-    background: #ff69b4;
-}
-.collection .btn:hover {
-    background: #66b3ff;
-}
-
-/* FOOTER */
-footer {
-    background: #b3d9ff;
-    padding: 30px 0;
-    text-align: center;
+nav ul { display: flex; gap: 2rem; padding: 1rem 0; }
+nav ul li a {
+    font-weight: 600;
     position: relative;
+    padding: 5px 0;
+    transition: 0.3s;
 }
-footer p {
-    margin-top: 15px;
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--coral-pink);
+    left: 0; bottom: 0;
+    transition: 0.3s;
 }
-footer a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #ff1493;
-    transition: 0.3s ease;
-}
-footer a:hover {
-    text-shadow: 0 0 10px #ff69b4;
-}
-#back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #ff69b4;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
+nav ul li a:hover::after { width: 100%; }
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--mist-blue), var(--coral-pink));
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
 }
 
-/* FADE UP ANIMATION */
-@keyframes fadeUp {
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero h1 {
+    font-size: 4rem;
+    color: var(--white);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+.hero p {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin: 20px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s 0.5s forwards;
+}
+.hero .btn-primary {
+    background: var(--coral-pink);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.hero .btn-primary:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(255,111,97,0.4);
+}
+
+@keyframes fadeInUp {
     to { opacity: 1; transform: translateY(0); }
 }
-.delay-1 { animation-delay: 0.3s; }
-.delay-2 { animation-delay: 0.6s; }
-.delay-3 { animation-delay: 0.9s; }
-.product-card {
-  transition: transform 0.3s, box-shadow 0.3s;
+
+/* Sections */
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 
-.product-card:hover {
-  transform: scale(1.05) rotate(1deg);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
+/* Buttons */
 .btn {
-  transition: background-color 0.3s, box-shadow 0.3s;
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
 }
-
 .btn:hover {
-  background-color: #5170d6;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease-out;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-.scroll-reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+/* Cards */
+.card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-.product-card img {
-  transition: transform 0.5s ease;
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+.card img { width: 100%; }
+.card-content { padding: 20px; }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--dark);
+    color: #fff;
 }
 
-.product-card img:hover {
-  transform: scale(1.1);
-}
-#preloader {
-  position: fixed;
-  top:0; left:0; width:100%; height:100%;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.spinner {
-  width:50px;
-  height:50px;
-  border:5px solid #6c92f4;
-  border-top:5px solid transparent;
-  border-radius:50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-<section id="about-us" class="scroll-reveal">
-  <div class="about-container">
-    <div class="about-text">
-      <h2>About NPHere</h2>
-      <p>
-        NPHere is a handmade candle brand dedicated to bringing warmth and elegance
-        to your space. Every candle is crafted with love, premium ingredients, 
-        and unique scents to create a cozy ambiance in your home.
-      </p>
-      <p>
-        Our mission is to make every moment special, whether it's a relaxing evening
-        at home or a gift for someone you love.
-      </p>
-      <a href="about.html" class="btn">Learn More</a>
-    </div>
-    <div class="about-image">
-      <img src="images/about-candle.jpg" alt="About NPHere Candles">
-    </div>
-  </div>
-</section>
+/* Animations for Scroll */
+.fade-up { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
+.fade-up.show { opacity: 1; transform: translateY(0); }
