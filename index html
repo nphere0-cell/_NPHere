@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NPHere — Enhanced</title>
+  <meta name="description" content="NPHere — eco-friendly luxury candles. Enhanced demo with animations, mobile-friendly layout, product previews, and newsletter capture." />
+
+  <!-- Theme colors: change these CSS variables to switch Mist Blue / Pink variants -->
+  <style>
+    :root{
+      /* Primary palette (change these to adjust main colors) */
+      --mist-blue-100: #eaf6ff;
+      --mist-blue-500: #6fb7ff; /* main mist blue */
+      --mist-blue-700: #2b8eff;
+      --accent-pink-500: #ff7fbf; /* main pink */
+      --accent-pink-300: #ffbfe0;
+
+      --bg: #ffffff;
+      --muted: #6b6b6b;
+      --card-shadow: rgba(43,142,255,0.12);
+      --glass: rgba(255,255,255,0.6);
+    }
+
+    /* Basic reset */
+    *{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:#111}
+    a{color:inherit;text-decoration:none}
+
+    body{
+      background: linear-gradient(180deg,var(--mist-blue-100),#fff 40%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+
+    /* Top navigation */
+    .nav{position:fixed;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;z-index:60;backdrop-filter: blur(6px);background:linear-gradient(90deg, rgba(255,255,255,0.36), rgba(255,255,255,0.18));box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--mist-blue-500),var(--accent-pink-500));box-shadow:0 6px 20px rgba(43,142,255,0.12);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .nav .links{display:flex;gap:18px;align-items:center}
+    .nav .links a{padding:8px 12px;border-radius:8px;color:var(--muted);font-weight:600}
+    .nav .cta{background:linear-gradient(90deg,var(--accent-pink-500),var(--mist-blue-700));color:white;padding:10px 16px;border-radius:10px;font-weight:700}
+
+    /* Hero */
+    .hero{min-height:84vh;display:grid;grid-template-columns:1fr 460px;gap:36px;align-items:center;padding:110px 6vw 60px}
+    .hero-left{max-width:780px}
+    .eyebrow{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--mist-blue-100),var(--accent-pink-300));font-weight:700;margin-bottom:18px}
+    h1{font-size:48px;line-height:1.02;margin:0 0 14px}
+    p.lead{color:var(--muted);margin:0 0 22px}
+    .actions{display:flex;gap:12px;align-items:center}
+    .btn-primary{background:linear-gradient(90deg,var(--mist-blue-500),var(--mist-blue-700));padding:14px 18px;border-radius:12px;color:#fff;font-weight:700;border:none;cursor:pointer}
+    .btn-ghost{padding:12px 14px;border-radius:12px;border:1px solid rgba(16,24,40,0.06);background:transparent}
+
+    /* Animated candle preview card */
+    .hero-right{display:flex;flex-direction:column;gap:18px}
+    .candle-card{background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));padding:22px;border-radius:18px;box-shadow:0 10px 40px var(--card-shadow);backdrop-filter: blur(8px);position:relative;overflow:hidden}
+    .candle-glass{height:260px;border-radius:14px;background:linear-gradient(180deg,#fff, var(--mist-blue-100));display:flex;align-items:center;justify-content:center;position:relative}
+    .flame{position:absolute;top:48px;width:18px;height:36px;border-radius:50% 50% 40% 40%;transform:translateX(-50%);left:50%;filter:drop-shadow(0 8px 18px rgba(255,127,191,0.18))}
+    .flame:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 45% 30%, #fff 0 8%, rgba(255,200,200,0) 20%);border-radius:inherit}
+    .flame:after{content:"";position:absolute;inset:4px;background:linear-gradient(0deg,#ffd6d6 0%, #fffbdf 40%, rgba(255,200,200,0));border-radius:inherit;opacity:0.95}
+
+    /* subtle flicker animation */
+    @keyframes flicker {0%{transform:translateY(0) scale(1)}50%{transform:translateY(-2px) scale(1.02)}100%{transform:translateY(0) scale(1)}}
+    .flame{animation:flicker 1.1s infinite ease-in-out}
+
+    /* Collections */
+    .collections{padding:28px 6vw;background:linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.2));display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .collection-card{border-radius:14px;padding:22px;background:linear-gradient(180deg,#fff, var(--mist-blue-100));box-shadow:0 12px 30px rgba(43,142,255,0.06)}
+
+    /* Products grid */
+    .products{padding:36px 6vw;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .product{background:#fff;border-radius:14px;padding:16px;box-shadow:0 10px 30px rgba(16,24,40,0.04);transition:transform .28s ease, box-shadow .28s ease}
+    .product:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(16,24,40,0.08)}
+    .product .img{height:180px;border-radius:10px;background:linear-gradient(135deg,var(--mist-blue-100),var(--accent-pink-300));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+    .product h3{margin:12px 0 6px}
+    .price{font-weight:700}
+
+    /* Reviews */
+    .reviews{padding:36px 6vw;background:linear-gradient(180deg,#fff, #fff);display:flex;flex-direction:column;gap:14px}
+    .review-card{background:linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));padding:16px;border-radius:12px;display:flex;gap:12px;align-items:center}
+
+    /* Newsletter */
+    .newsletter{padding:48px 6vw;display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .newsletter .form{display:flex;gap:12px}
+    input[type=email]{padding:12px 14px;border-radius:10px;border:1px solid rgba(16,24,40,0.06)}
+
+    /* Footer */
+    footer{padding:28px 6vw;background:linear-gradient(180deg,#fff, var(--mist-blue-100));display:flex;justify-content:space-between;align-items:center}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr;padding-top:120px}
+      .collections{grid-template-columns:repeat(2,1fr)}
+      .products{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:620px){
+      .nav{padding:0 12px}
+      h1{font-size:32px}
+      .collections{grid-template-columns:1fr}
+      .products{grid-template-columns:1fr}
+      .hero-right{order:2}
+    }
+
+    /* small utility */
+    .center{text-align:center}
+    .muted{color:var(--muted)}
+
+    /* entrance animation */
+    .anim-up{opacity:0;transform:translateY(18px);transition:all .7s cubic-bezier(.2,.9,.3,1)}
+    .anim-up.show{opacity:1;transform:translateY(0)}
+
+    /* cart drawer */
+    .cart-drawer{position:fixed;right:0;top:0;height:100vh;width:420px;background:linear-gradient(180deg,#fff, var(--mist-blue-100));box-shadow:-24px 0 40px rgba(16,24,40,0.08);transform:translateX(110%);transition:transform .38s cubic-bezier(.2,.9,.3,1);z-index:90;padding:28px}
+    .cart-drawer.open{transform:translateX(0)}
+
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="logo">
+      <div class="mark">NP</div>
+      <div>
+        <div style="font-weight:800">NPHere</div>
+        <div style="font-size:12px;color:var(--muted)">Eco‑lux candles</div>
+      </div>
+    </div>
+    <nav class="links">
+      <a href="#collections">Collection</a>
+      <a href="#products">Products</a>
+      <a href="#blog">Blog</a>
+      <a href="#reviews">Reviews</a>
+      <button class="cta" id="openNewsletter">Subscribe</button>
+      <button class="cta" id="openCart">Cart (0)</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <div class="eyebrow">Handmade • Sustainable</div>
+        <h1 class="anim-up">Candles that craft moments — Mist Blue & Pink Editions</h1>
+        <p class="lead anim-up">Warmth, aroma and design combined. Small batch candles made from natural wax, long burn times and beautiful packaging for gifting or personal joy.</p>
+        <div class="actions anim-up">
+          <button class="btn-primary" id="shopNow">Shop Now</button>
+          <button class="btn-ghost" id="learnMore">How we make</button>
+        </div>
+
+        <div style="margin-top:28px;max-width:680px">
+          <div class="anim-up" style="display:flex;gap:12px;align-items:center">
+            <div style="width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--mist-blue-500),var(--accent-pink-500));display:flex;align-items:center;justify-content:center;color:white;font-weight:800">✓</div>
+            <div>
+              <div style="font-weight:700">Natural & clean burning</div>
+              <div class="muted">Soy & beeswax blends — no paraffin, phthalates or toxins</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="candle-card anim-up" style="--i:0;">
+          <div class="candle-glass">
+            <div class="flame" style="left:50%"></div>
+            <div style="position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-weight:800">Mist Blue — Serenity</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div>
+              <div style="font-weight:800">Serenity 220g</div>
+              <div class="muted">Burn time ~ 45 hrs</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <button class="btn-ghost">Add</button>
+              <button class="btn-primary">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="candle-card anim-up" style="--i:1;">
+          <div class="candle-glass" style="background:linear-gradient(180deg,#fff,var(--accent-pink-300));">
+            <div class="flame" style="left:46%"></div>
+            <div style="position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-weight:800">Blush — Pink Edition</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div>
+              <div style="font-weight:800">Blush 160g</div>
+              <div class="muted">Burn time ~ 30 hrs</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <button class="btn-ghost">Add</button>
+              <button class="btn-primary">Buy</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="collections" class="collections">
+      <div class="collection-card anim-up">
+        <h3>By Scent</h3>
+        <p class="muted">Floral · Citrus · Woody · Spa</p>
+      </div>
+      <div class="collection-card anim-up">
+        <h3>Gift Sets</h3>
+        <p class="muted">Curated boxes for special moments</p>
+      </div>
+      <div class="collection-card anim-up">
+        <h3>Limited Editions</h3>
+        <p class="muted">Seasonal scents & packaging</p>
+      </div>
+    </section>
+
+    <section id="products" class="products">
+      <!-- example products -->
+      <article class="product anim-up">
+        <div class="img">Serenity</div>
+        <h3>Serenity — Mist Blue</h3>
+        <div class="muted">Notes: Lavender, sea salt, cedar</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+          <div class="price">₹499</div>
+          <div style="display:flex;gap:8px"><button class="btn-ghost">View</button><button class="btn-primary">Add</button></div>
+        </div>
+      </article>
+
+      <article class="product anim-up">
+        <div class="img">Blush</div>
+        <h3>Blush — Pink</h3>
+        <div class="muted">Notes: Rose, vanilla, sandalwood</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+          <div class="price">₹449</div>
+          <div style="display:flex;gap:8px"><button class="btn-ghost">View</button><button class="btn-primary">Add</button></div>
+        </div>
+      </article>
+
+      <article class="product anim-up">
+        <div class="img">Gift</div>
+        <h3>Mini Trio</h3>
+        <div class="muted">Three 60g travel tins</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+          <div class="price">₹899</div>
+          <div style="display:flex;gap:8px"><button class="btn-ghost">View</button><button class="btn-primary">Add</button></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="reviews" class="reviews">
+      <h2>What customers say</h2>
+      <div class="review-card anim-up">
+        <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--mist-blue-500),var(--accent-pink-500));display:flex;align-items:center;justify-content:center;color:white;font-weight:800">A</div>
+        <div>
+          <div style="font-weight:800">Anjali P.</div>
+          <div class="muted">"Lovely scent, long-lasting and clean burn. Packaging was beautiful."
+          </div>
+        </div>
+      </div>
+      <div class="review-card anim-up">
+        <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent-pink-500),var(--mist-blue-500));display:flex;align-items:center;justify-content:center;color:white;font-weight:800">R</div>
+        <div>
+          <div style="font-weight:800">Rohit K.</div>
+          <div class="muted">"Received as a gift — the aroma fills the room without being overpowering."
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="newsletter" class="newsletter">
+      <div>
+        <h3>Join our candle circle</h3>
+        <p class="muted">Subscribe to get new scent launches & 10% off your first order.</p>
+      </div>
+      <form class="form" onsubmit="newsletterSubmit(event)">
+        <input id="emailInput" type="email" placeholder="Your email" required />
+        <button class="btn-primary">Subscribe</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>
+      <div style="font-weight:800">NPHere</div>
+      <div class="muted">Eco‑lux candles • Made in India</div>
+    </div>
+    <div class="muted">© NPHere 2025</div>
+  </footer>
+
+  <!-- Cart drawer -->
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <h3>Your Cart</h3>
+    <div id="cartItems" style="margin-top:12px">No items yet</div>
+    <div style="position:absolute;left:0;right:0;bottom:0;padding:18px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,transparent,rgba(255,255,255,0.9))">
+      <div class="muted">Total</div>
+      <div style="font-weight:800">₹0</div>
+    </div>
+  </aside>
+
+  <script>
+    // Small helper: animate elements on scroll
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){e.target.classList.add('show')}
+      })
+    },{threshold:0.12})
+    document.querySelectorAll('.anim-up').forEach(el=>obs.observe(el))
+
+    // Newsletter modal / flow (simple)
+    function newsletterSubmit(e){e.preventDefault();const em=document.getElementById('emailInput').value;alert('Thanks! '+em+' — check your inbox for 10% off.');document.getElementById('emailInput').value=''}
+
+    // Cart drawer
+    const cartDrawer=document.getElementById('cartDrawer');
+    document.getElementById('openCart').addEventListener('click',()=>{cartDrawer.classList.toggle('open');cartDrawer.setAttribute('aria-hidden', cartDrawer.classList.contains('open') ? 'false' : 'true')})
+
+    // Shop now scroll
+    document.getElementById('shopNow').addEventListener('click',()=>{document.getElementById('products').scrollIntoView({behavior:'smooth'})})
+
+    // Simple add-to-cart for demo (no backend)
+    document.querySelectorAll('.product .btn-primary').forEach((btn,i)=>{
+      btn.addEventListener('click',()=>{
+        addToCart({title:document.querySelectorAll('.product h3')[i].innerText,price:document.querySelectorAll('.product .price')[i].innerText})
+      })
+    })
+    function addToCart(item){const c=document.getElementById('cartItems');if(c.innerText==='No items yet')c.innerText='';const div=document.createElement('div');div.style.padding='8px 0';div.style.borderBottom='1px solid rgba(16,24,40,0.04)';div.innerText=item.title+' — '+item.price;c.appendChild(div);document.getElementById('openCart').innerText='Cart ('+c.children.length+')';}
+
+    // small polish: make header shrink on scroll
+    const header=document.querySelector('.nav');let lastScroll=0;window.addEventListener('scroll',()=>{const s=window.scrollY;if(s>80)header.style.height='64px';else header.style.height='72px';lastScroll=s})
+
+    // Accessibility: keyboard trap for cart (basic)
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){cartDrawer.classList.remove('open')}})
+  </script>
+</body>
+</html>
