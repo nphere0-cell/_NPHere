@@ -47,3 +47,10 @@ slider.addEventListener('mousemove', e => {
   const walk = (x - startX) * 2;
   slider.scrollLeft = scrollLeft - walk;
 });
+// FAQ Accordion
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+  item.querySelector('.faq-question').addEventListener('click', () => {
+    item.classList.toggle('active');
+  });
+});
