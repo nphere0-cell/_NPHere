@@ -65,3 +65,12 @@ document.querySelector('.newsletter-form').addEventListener('submit', e => {
   e.preventDefault();
   alert('You have successfully subscribed to our newsletter!');
 });
+// Footer social icons animation
+document.querySelectorAll('.social-icons a').forEach(icon => {
+  icon.addEventListener('mouseover', () => {
+    icon.style.transform = 'rotate(10deg) scale(1.2)';
+  });
+  icon.addEventListener('mouseleave', () => {
+    icon.style.transform = 'rotate(0) scale(1)';
+  });
+});
