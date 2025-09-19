@@ -54,3 +54,14 @@ faqItems.forEach(item => {
     item.classList.toggle('active');
   });
 });
+// Contact form submit (demo only)
+document.querySelector('.contact-form').addEventListener('submit', e => {
+  e.preventDefault();
+  alert('Thank you for reaching out! We will get back to you soon.');
+});
+
+// Newsletter form submit (demo only)
+document.querySelector('.newsletter-form').addEventListener('submit', e => {
+  e.preventDefault();
+  alert('You have successfully subscribed to our newsletter!');
+});
