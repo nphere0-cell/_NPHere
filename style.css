@@ -11,15 +11,7 @@ body {
   background: #fff;
   color: var(--dark-text);
   overflow-x: hidden;
-}  
-.bg-video {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: -1;
 }
-
 /* Navbar */
 nav {
   position: fixed;
@@ -68,18 +60,6 @@ nav ul li a:hover::after {
   width: 100%;
 }
 /* Hero */
-
-{  background: linear-gradient(270deg, #6fb7ff, #ff7fbf, #6fb7ff);
-  background-size: 600% 600%;
-  animation: gradientMove 15s ease infinite;
-}
-
-@keyframes gradientMove {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
-
 header {
   height: 100vh;
   display: flex;
@@ -183,122 +163,57 @@ footer {
 @keyframes logoFade {
   from {opacity:0; transform: translateX(-20px)}
   to {opacity:1; transform: translateX(0)}
-
-  /* About Section */
-.about {
-  padding: 4rem 2rem;
+}
+/* About Section */
+.about-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, rgba(111,183,255,0.05), rgba(255,127,191,0.05));
   text-align: center;
-  background: linear-gradient(135deg, mistyrose, lightblue);
-  border-radius: 20px;
-  margin: 3rem auto;
-  max-width: 1000px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.1);
 }
-
-.about h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: coral;
-  font-family: 'Poppins', sans-serif;
-}
-
-.about p {
-  font-size: 1.2rem;
+.about-text {
+  max-width: 800px;
+  margin: auto;
+  font-size: 1.1rem;
   color: #444;
-  line-height: 1.8;
+  margin-bottom: 3rem;
 }
-
-/* Candle Animation */
-.candle {
-  position: relative;
-  width: 40px;
-  height: 100px;
-  margin: 3rem auto 0;
-}
-.wax {
-  background: #fff;
-  width: 40px;
-  height: 100px;
-  border-radius: 10px;
-}
-.wick {
-  background: black;
-  width: 4px;
-  height: 15px;
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.flame {
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  width: 20px;
-  height: 40px;
-  background: radial-gradient(ellipse at center, gold 0%, orange 70%, transparent 100%);
-  border-radius: 50%;
-  transform: translateX(-50%);
-  animation: flicker 1s infinite alternate;
-}
-@keyframes flicker {
-  0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
-  50% { transform: translateX(-50%) scale(1.1); opacity: 1; }
-  100% { transform: translateX(-50%) scale(0.9); opacity: 0.8; }
-}
-
-/* Founders Section */
-.founders {
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, mistyrose, lightblue);
-  text-align: center;
-}
-
-.founders h2 {
-  font-size: 2.5rem;
+.founders-title {
+  font-size: 2rem;
   margin-bottom: 2rem;
-  color: coral;
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 1px;
+  color: var(--mist-blue-700);
 }
-
-.founder-cards {
-  display: flex;
-  justify-content: center;
+.founders-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  flex-wrap: wrap;
 }
-
-.card {
-  background: white;
-  border-radius: 20px;
-  padding: 1.5rem;
-  width: 250px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  font-family: 'Poppins', sans-serif;
+.founder-card {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.card img {
-  width: 100%;
-  border-radius: 15px;
+.founder-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(255,127,191,0.3);
+}
+.founder-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
   margin-bottom: 1rem;
+  border: 3px solid var(--mist-blue-500);
+  animation: floatImg 6s ease-in-out infinite;
 }
-
-.card h3 {
-  font-size: 1.4rem;
-  color: royalblue;
+.founder-card h4 {
   margin-bottom: 0.5rem;
+  color: var(--accent-pink-500);
 }
-
-.card p {
-  color: coral;
-  font-size: 1rem;
-}
-
-.card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+.founder-card p {
+  font-size: 0.95rem;
+  color: #555;
 }
 
 /* Products Section */
@@ -611,62 +526,4 @@ footer {
   font-size: 0.9rem;
   border-top: 1px solid rgba(255,255,255,0.3);
   padding-top: 1rem;
-}
-.bg-animated {
-  background: linear-gradient(270deg, #6fb7ff, #ff7fbf, #6fb7ff);
-  background-size: 600% 600%;
-  animation: gradientMove 15s ease infinite;
-}
-
-@keyframes gradientMove {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
-.refund-policy {
-  padding: 4rem 2rem;
-  text-align: center;
-  background: linear-gradient(135deg, royalblue, crimson);
-  color: #fff;
-  border-radius: 1.5rem;
-  margin: 4rem auto;
-  animation: fadeIn 1.5s ease;
-}
-
-.refund-policy h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.refund-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.refund-card {
-  background: rgba(255,255,255,0.1);
-  padding: 2rem;
-  border-radius: 1rem;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.refund-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  background: rgba(255,255,255,0.2);
-}
-
-.refund-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #ffeaea;
-}
-
-.refund-card p {
-  font-size: 1rem;
-  line-height: 1.6;
 }
