@@ -1,3 +1,13 @@
+<section className="hero py-20 bg-gray-100 text-center">
+  <h1 className="text-4xl font-bold mb-6">Eco-Friendly Candles for Every Mood</h1>
+  <p className="text-lg mb-8">Handmade, plant-based, reusable jars, and customizable.</p>
+  <a
+    href="/products"
+    className="px-8 py-4 bg-yellow-500 text-white font-semibold rounded-lg hover:bg-yellow-600 transition"
+  >
+    Browse Products
+  </a>
+</section>
 // Scroll animation for features
 const features = document.querySelectorAll('.feature');
 const observer = new IntersectionObserver(entries => {
@@ -9,6 +19,32 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 
 features.forEach(f => observer.observe(f));
+import Head from "next/head";
+
+<Head>
+  <title>{product.name} | NPHere</title>
+  <meta name="description" content={product.shortDescription || "Eco-friendly handmade candles"} />
+  <meta name="keywords" content="candles, eco-friendly, handmade, reusable, NPHere" />
+  <meta name="robots" content="index, follow" />
+</Head>
+
+{/* Product Images */}
+<div className="product-images">
+  {product.images.map((img, index) => (
+    <img
+      key={index}
+      src={img.url}
+      alt={img.alt || `Image of ${product.name}`} // Alt text added
+      className="w-full h-auto object-cover mb-4 rounded-lg"
+    />
+  ))}
+</div>
+<img
+  src={img.url}
+  alt={img.alt || `Image of ${product.name}`}
+  loading="lazy"  // Lazy loading added
+  className="w-full h-auto object-cover mb-4 rounded-lg"
+/>
 
 // Animate founders on scroll
 const founders = document.querySelectorAll('.founder-card');
