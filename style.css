@@ -491,6 +491,51 @@ footer {
   color: #fff;
   transform: scale(1.05);
 }
+.refund {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #6fb7ff, #ff7fbf);
+  color: #fff;
+  border-radius: 1.5rem;
+  margin: 3rem auto;
+  max-width: 1000px;
+  animation: fadeIn 1.5s ease;
+}
+
+.refund h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.refund-container {
+  display: grid;
+  gap: 2rem;
+}
+
+.refund-item {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.refund-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.refund-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.refund-item p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
 /* Footer Section */
 .footer {
   background: linear-gradient(135deg, var(--mist-blue-500), var(--accent-pink-500));
