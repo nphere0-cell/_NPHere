@@ -18,7 +18,6 @@ h1, h2, h3 {
 p {
   margin-bottom: 10px;
 }
-
 /* Navbar */
 nav {
   position: fixed;
@@ -223,8 +222,6 @@ footer {
   border-radius: 50%;
   margin-bottom: 15px;
 }
-
-
 /* Products Section */
 .products-section {
   text-align: center;
@@ -291,7 +288,6 @@ footer {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
-
 /* Blog Section */
 .blog-section {
   padding: 5rem 2rem;
@@ -351,7 +347,6 @@ footer {
   transform: scale(1.08);
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
-
 /* FAQ Section */
 .faq-section {
   padding: 5rem 2rem;
@@ -453,7 +448,6 @@ footer {
   margin-bottom: 1rem;
   color: var(--mist-blue-700);
 }
-
 /* Newsletter Section */
 .newsletter-section {
   padding: 5rem 2rem;
@@ -535,7 +529,6 @@ footer {
   line-height: 1.6;
   font-size: 1.1rem;
 }
-
 /* Footer Section */
 .footer {
   background: linear-gradient(135deg, var(--mist-blue-500), var(--accent-pink-500));
