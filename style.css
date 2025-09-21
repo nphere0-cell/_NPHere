@@ -65,6 +65,15 @@ nav ul li a::after {
 nav ul li a:hover::after {
   width: 100%;
 }
+button, a {
+  outline: none;
+}
+
+button:focus, a:focus {
+  outline: 3px solid #FBBF24; /* Yellow focus ring */
+  outline-offset: 2px;
+}
+
 /* Hero */
 header {
   height: 100vh;
