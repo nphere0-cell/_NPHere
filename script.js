@@ -9,17 +9,18 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 
 features.forEach(f => observer.observe(f));
-// About Section scroll animation
-const aboutSection = document.querySelector('.about-section');
-const aboutObserver = new IntersectionObserver(entries => {
+
+// Animate founders on scroll
+const founders = document.querySelectorAll('.founder-card');
+const founderObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      aboutSection.classList.add('visible');
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.2 });
+}, {threshold: 0.2});
 
-aboutObserver.observe(aboutSection);
+founders.forEach(f => founderObserver.observe(f));
 // Smooth scroll for product slider
 const slider = document.querySelector('.product-slider');
 let isDown = false;
