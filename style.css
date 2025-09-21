@@ -660,3 +660,50 @@ footer {
   50% {background-position: 100% 50%;}
   100% {background-position: 0% 50%;}
 }
+.refund-policy {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, royalblue, crimson);
+  color: #fff;
+  border-radius: 1.5rem;
+  margin: 4rem auto;
+  animation: fadeIn 1.5s ease;
+}
+
+.refund-policy h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.refund-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.refund-card {
+  background: rgba(255,255,255,0.1);
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.refund-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  background: rgba(255,255,255,0.2);
+}
+
+.refund-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffeaea;
+}
+
+.refund-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
