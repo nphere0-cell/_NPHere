@@ -293,6 +293,12 @@ footer {
   background: var(--accent-pink-500);
   transform: scale(1.05);
 }
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
 /* Blog Section */
 .blog-section {
   padding: 5rem 2rem;
