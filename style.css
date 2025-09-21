@@ -330,6 +330,21 @@ footer {
 .read-more:hover {
   text-decoration: underline;
 }
+.cta-btn {
+  display: inline-block;
+  padding: 14px 30px;
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.cta-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
 
 /* FAQ Section */
 .faq-section {
