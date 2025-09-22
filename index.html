@@ -1,6 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NP Here</title>
+<style>
+/* Preloader Fullscreen */
+#preloader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Candle */
+.candle {
+  position: relative;
+  width: 20px;
+  height: 60px;
+  background: #fff3e0;
+  border-radius: 5px;
+  animation: melt 3s infinite alternate;
+  z-index: 2;
+}
+
+/* Wick */
+.wick {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 10px;
+  background: #000;
+  z-index: 3;
+}
+
+/* Flame */
+.flame {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 20px;
+  background: radial-gradient(circle at 50% 50%, #ff9c00, orange 70%, #ff4500);
+  border-radius: 50%;
+  animation: flicker 1s infinite;
+  box-shadow: 0 0 15px 5px rgba(255,165,0,0.7);
+  z-index: 4;
+}
+
+/* Wax Melt */
+@keyframes melt {
+  0% { transform: scaleY(1); }
+  50% { transform: scaleY(1.02); }
+  100% { transform: scaleY(1); }
+}
+
+/* Flame Flicker */
+@keyframes flicker {
+  0%,100% { transform: translateX(-50%) scaleY(1); opacity: 1; }
+  25% { transform: translateX(-50%) scaleY(1.2) translateY(-2px); opacity: 0.9; }
+  50% { transform: translateX(-50%) scaleY(1.3) translateY(-3px); opacity: 0.8; }
+  75% { transform: translateX(-50%) scaleY(1.1) translateY(-1px); opacity: 0.95; }
+}
+
+/* Smoke */
+.smoke {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  width: 8px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(200,200,200,0.5), rgba(200,200,200,0));
+  border-radius: 50%;
+  animation: smokeUp 3s infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Smoke animation */
+@keyframes smokeUp {
+  0% { transform: translateX(-50%) translateY(0) scale(0.5); opacity: 0.6; }
+  50% { transform: translateX(-50%) translateY(-15px) scale(1); opacity: 0.4; }
+  100% { transform: translateX(-50%) translateY(-40px) scale(1.5); opacity: 0; }
+}
+
+/* Glow around candle */
+.candle-glow {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  width: 80px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(255,165,0,0.3), transparent 70%);
+  transform: translateX(-50%);
+  z-index: 0;
+  animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+  50% { transform: translateX(-50%) scale(1.1); opacity: 0.8; }
+  100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+}
+
+/* Sparks */
+.spark {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: orange;
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkUp 2s linear infinite;
+}
+
+@keyframes sparkUp {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-50px) translateX(calc(var(--x) * 1px)) scale(0.5); opacity: 0; }
+}
+
+/* Main Content */
+#main-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+#main-content.show {
+  display: block;
+  opacity: 1;
+}
+
+#preloader-text {
+  color: white;
+  margin-top: 15px;
+  font-family: sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+</style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="candle-glow"></div>
+  <div class="candle">
+    <div class="flame"></div>
+    <div class="wick"></div>
+    <div class="smoke"></div>
+  </div>
+  <div id="preloader-text">Lighting your candle...</div>
+</div>
+
+<!-- Main Content -->
+<div id="main-content">
+  <h1>Welcome to NP Here!</h1>
+  <p>Your handmade candles with a personal touch.</p>
+</div>
+
+<script>
+// Create multiple spark particles
+const preloader = document.getElementById('preloader');
+for(let i=0;i<15;i++){
+  let spark = document.createElement('div');
+  spark.className = 'spark';
+  spark.style.setProperty('--x', Math.floor(Math.random()*20 - 10)); // random horizontal move
+  spark.style.left = '50%';
+  spark.style.top = '50%';
+  spark.style.animationDelay = `${Math.random()*2}s`;
+  preloader.appendChild(spark);
+}
+
+// Show main content after 3 sec
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    preloader.style.opacity = '0';
+    setTimeout(() => preloader.style.display = 'none', 500);
+    const mainContent = document.getElementById('main-content');
+    mainContent.classList.add('show');
+  }, 3000);
+});
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NPHere – Home</title>
