@@ -34,14 +34,14 @@ import Head from "next/head";
     <img
       key={index}
       src={img.url}
-      alt={img.alt || `Image of ${product.name}`} // Alt text added
+      alt={img.alt || Image of ${product.name}} // Alt text added
       className="w-full h-auto object-cover mb-4 rounded-lg"
     />
   ))}
 </div>
 <img
   src={img.url}
-  alt={img.alt || `Image of ${product.name}`}
+  alt={img.alt || Image of ${product.name}}
   loading="lazy"  // Lazy loading added
   className="w-full h-auto object-cover mb-4 rounded-lg"
 />
@@ -98,7 +98,6 @@ document.querySelector('.contact-form').addEventListener('submit', e => {
 });
 
 // Newsletter form submit (demo only)
-
 document.querySelector('.newsletter-form').addEventListener('submit', e => {
   e.preventDefault();
   alert('You have successfully subscribed to our newsletter!');
