@@ -29,6 +29,19 @@
   </nav>
 
   <!-- Hero Section -->
+  <section id="hero" class="hero-carousel">
+  <div class="slides">
+    <div class="slide" style="background-image:url('/assets/hero1.jpg')">
+      <div class="hero-content">
+        <h1>Eco-Friendly Candles</h1>
+        <p>Hand-poured. Sustainable. Beautiful.</p>
+        <a class="btn" href="/products">Shop Now</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('/assets/hero2.jpg')">...</div>
+  </div>
+</section>
+
   <header id="home">
     <div class="hero-logo">
       <img src="images/logo.png" alt="NPHere Main Logo">
@@ -38,6 +51,22 @@
    <a href="/shop" class="cta-btn">Shop Now</a>
 
   </header>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><img src="/assets/logo.png" alt="NPHere"></a>
+    <nav class="main-nav">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/products">Products</a>
+      <a href="/blog">Blog</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button id="search-toggle">Search</button>
+      <a href="/cart" class="cart-btn">Cart (<span id="cart-count">0</span>)</a>
+    </div>
+  </div>
+</header>
 
   <!-- Features -->
   <section>
@@ -94,6 +123,16 @@
 </section>
 
 <!-- Products Section -->
+  <div class="product-card">
+  <img src="/assets/product-1.jpg" alt="Product">
+  <h3 class="title">Mandala Illume</h3>
+  <p class="price">Rs. 155.00</p>
+  <div class="card-actions">
+    <button class="add-to-cart" data-id="prod_1">Add to cart</button>
+    <a href="/product/prod_1" class="btn-outline">View</a>
+  </div>
+</div>
+
 <section id="products" class="products-section">
   <h2 class="section-title">Our Products</h2>
   <div class="product-slider">
@@ -319,16 +358,19 @@
 </section>
 
 <!-- Newsletter Section -->
+  
 <section id="newsletter" class="newsletter-section">
   <h2 class="section-title">Subscribe to Our Newsletter</h2>
   <p>Stay updated with the latest products, offers, and blog posts.</p>
   <form class="newsletter-form">
-    <input type="email" placeholder="Enter your email" required>
-    <button type="submit" class="newsletter-btn">Subscribe</button>
-  </form>
+    <form id="subscribe-form">
+  <label>Subscribe for instant discounts</label>
+  <input type="email" name="email" placeholder="Email" required>
+  <button type="submit">Subscribe</button>
+</form>
 </section>
-  <section class="refund">
-    
+  
+  
  <section class="refund">
   <h2>Refund Policy</h2>
   <div class="refund-container">
