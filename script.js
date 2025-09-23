@@ -4,33 +4,25 @@ import Head from "next/head";
 
 export default function ProductPage({ product }) {
   useEffect(() => {
-    // Scroll animation for features
-    const features = document.querySelectorAll(".feature");
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    features.forEach(f => observer.observe(f));
+    // IntersectionObserver for animations
+    const revealOnScroll = (selector, className = "visible") => {
+      const elements = document.querySelectorAll(selector);
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add(className);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      elements.forEach(el => observer.observe(el));
+    };
 
-    // Animate founders on scroll
-    const founders = document.querySelectorAll(".founder-card");
-    const founderObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    founders.forEach(f => founderObserver.observe(f));
+    revealOnScroll(".feature");
+    revealOnScroll(".founder-card");
+    revealOnScroll(".fade-in");
 
     // Product slider (drag scroll)
     const slider = document.querySelector(".product-slider");
@@ -90,30 +82,37 @@ export default function ProductPage({ product }) {
       </Head>
 
       {/* Hero Section */}
-      <section className="hero py-20 bg-gray-100 text-center">
-        <h1 className="text-4xl font-bold mb-6">
-          Eco-Friendly Candles for Every Mood
+      <section className="hero py-24 bg-gradient-to-r from-pink-200 via-yellow-100 to-purple-200 text-center relative overflow-hidden">
+        <h1 className="text-5xl font-extrabold mb-6 fade-in drop-shadow-lg text-gray-800">
+          🌸 Eco-Friendly Candles for Every Mood 🌸
         </h1>
-        <p className="text-lg mb-8">
+        <p className="text-lg mb-8 text-gray-600 fade-in delay-200">
           Handmade, plant-based, reusable jars, and customizable.
         </p>
         <a
           href="/products"
-          className="px-8 py-4 bg-yellow-500 text-white font-semibold rounded-lg hover:bg-yellow-600 transition"
+          className="px-10 py-4 bg-pink-500 text-white font-semibold rounded-full shadow-lg hover:bg-pink-600 transition transform hover:scale-105"
         >
-          Browse Products
+          ✨ Browse Products ✨
         </a>
+
+        {/* Floating hearts animation */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="floating-shape top-10 left-20 bg-pink-400"></div>
+          <div className="floating-shape top-40 right-24 bg-yellow-400"></div>
+          <div className="floating-shape bottom-16 left-32 bg-purple-400"></div>
+        </div>
       </section>
 
       {/* Product Images */}
-      <div className="product-images">
+      <div className="product-images px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-6">
         {product.images.map((img, index) => (
           <img
             key={index}
             src={img.url}
             alt={img.alt || `Image of ${product.name}`}
             loading="lazy"
-            className="w-full h-auto object-cover mb-4 rounded-lg"
+            className="w-full h-auto object-cover rounded-2xl shadow-lg transform transition duration-500 hover:scale-105 hover:rotate-1 fade-in"
           />
         ))}
       </div>
