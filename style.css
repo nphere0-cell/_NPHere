@@ -1,8 +1,4 @@
-/* styles.css
-   Mist Blue + Coral theme for np-here.vercel.app
-*/
 
-/* --------------- Palette --------------- */
 :root{
   /* primary palette */
   --mist-50:  #F6FBFD; /* very light */
@@ -27,6 +23,62 @@
   --shadow-strong: 0 10px 30px rgba(18,51,61,0.12);
   --transition: 220ms cubic-bezier(.2,.9,.3,1);
   --max-width: 1100px;
+}
+/* Mobile nav toggle */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  width: 22px; height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.hamburger.active span:nth-child(1){ transform: rotate(45deg) translateY(6px); }
+.hamburger.active span:nth-child(2){ opacity: 0; }
+.hamburger.active span:nth-child(3){ transform: rotate(-45deg) translateY(-6px); }
+
+@media(max-width: 700px){
+  .hamburger{ display:flex; }
+  .nav-links{ 
+    position:absolute; 
+    top:64px; right:0; 
+    background: var(--surface);
+    flex-direction:column;
+    padding:1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    display:none;
+  }
+  .nav-links.open{ display:flex; }
+}
+
+/* Scroll reveal */
+.reveal{
+  opacity:0;
+  transform: translateY(30px);
+  transition: all .6s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* Dark mode palette */
+:root[data-theme="dark"] {
+  --bg: #0f1b21;
+  --surface: #15242c;
+  --text: #e8f1f6;
+  --muted: #95aab6;
+  --mist-400: #4a8ba6;
+  --mist-600: #2f6f88;
+  --coral-400: #ff9271;
+  --coral-600: #ff7f50;
 }
 
 /* --------------- Global --------------- */
