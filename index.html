@@ -1,261 +1,154 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NP-Here Jewellery — Home</title>
-  <meta name="description" content="NP-Here Jewellery - mist-blue & coral-pink theme. Replace image placeholders with your product photos." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Jewelry Website</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a class="brand" href="#home">
-        <div class="logo">NP</div>
-        <div class="brand-text">NP-Here Jewellery</div>
-      </a>
+<!-- Navbar -->
+<header class="navbar">
+  <div class="container nav-inner">
+    <div class="brand">
+      <div class="logo">NJ</div>
+      <span>NeoJewels</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#collections">Collections</a>
+      <a href="#about">About</a>
+      <a href="#founders">Founders</a>
+      <a href="#blog">Blog</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
 
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#home">Home</a>
-        <a href="#collections">Collections</a>
-        <a href="#products">Products</a>
-        <a href="#why">Why Choose Us</a>
-        <a href="#about">About</a>
-        <a href="#founders">Founders</a>
-        <a href="#blog">Blog</a>
-        <a href="#faq">FAQ</a>
-        <a href="#news">News</a>
-        <a href="#policy">Policy</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<!-- Hero -->
+<section class="hero container" id="home">
+  <div class="hero-left">
+    <span class="kicker">Luxury Collection</span>
+    <h1>Premium Mist Blue & Coral Pink Jewelry</h1>
+    <p class="lead">Discover elegant designs, timeless pieces, and a sparkle that defines you.</p>
+    <button class="btn btn-primary">Shop Now</button>
+  </div>
+  <div class="hero-right">
+    <div class="img-placeholder large">Hero Image Here</div>
+  </div>
+</section>
 
-      <div class="nav-actions">
-        <button id="themeToggle" class="btn btn-ghost" aria-pressed="false">🌙</button>
-        <button id="navToggle" class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+<!-- Products -->
+<section class="container" id="products">
+  <h2>Our Products</h2>
+  <div class="product-grid">
+    <div class="product-card card reveal">
+      <div class="img-placeholder">Product Image</div>
+      <div class="product-body">
+        <h3>Product Name</h3>
+        <p class="price">$199 <span class="price-old">$249</span></p>
+        <div class="actions">
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
       </div>
     </div>
-  </header>
-
-  <!-- HERO / BANNER -->
-  <main>
-    <section id="home" class="hero container">
-      <div class="hero-left reveal">
-        <span class="kicker">New Arrivals</span>
-        <h1>Elegant Jewellery — Crafted to Shine</h1>
-        <p class="lead">High-quality, beautiful designs. Shop necklaces, earrings, rings and more. Replace the placeholders below with your product images.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#products">Shop Now</a>
-          <a class="btn btn-outline" href="#collections">View Collections</a>
-        </div>
-
-        <form id="newsletter" class="newsletter" aria-label="Subscribe to newsletter">
-          <input name="email" type="email" placeholder="Enter your email" required>
-          <button class="btn btn-primary" type="submit">Subscribe</button>
-        </form>
-      </div>
-
-      <aside class="hero-right reveal">
-        <!-- Big image placeholder (replace with your hero image) -->
-        <div class="img-placeholder large">Hero image placeholder</div>
-      </aside>
-    </section>
-
-    <!-- COLLECTIONS -->
-    <section id="collections" class="container reveal">
-      <h2>Discover Our Collections</h2>
-      <p class="lead">Choose from curated collections — classic, bridal, occasion, and more.</p>
-      <div class="collections-grid">
-        <article class="collection-card reveal">
-          <div class="img-placeholder">Collection image</div>
-          <h3>Necklaces</h3>
-        </article>
-        <article class="collection-card reveal">
-          <div class="img-placeholder">Collection image</div>
-          <h3>Earrings</h3>
-        </article>
-        <article class="collection-card reveal">
-          <div class="img-placeholder">Collection image</div>
-          <h3>Rings</h3>
-        </article>
-        <article class="collection-card reveal">
-          <div class="img-placeholder">Collection image</div>
-          <h3>Bangles</h3>
-        </article>
-      </div>
-    </section>
-
-    <!-- PRODUCTS GRID -->
-    <section id="products" class="container reveal">
-      <h2>Products</h2>
-      <p class="lead">Featured and best-selling items. Click a product for details (you can wire real product pages later).</p>
-      <div class="product-grid">
-        <!-- repeat product card - images left blank for you -->
-        <article class="product-card card reveal">
-          <div class="img-placeholder">Product image</div>
-          <div class="product-body">
-            <h3 class="title">Sparkling Floral Ring</h3>
-            <div class="price">₹179 <span class="price-old">₹229</span></div>
-            <div class="actions">
-              <button class="btn btn-primary">Add to Cart</button>
-              <button class="btn btn-ghost">View</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card card reveal">
-          <div class="img-placeholder">Product image</div>
-          <div class="product-body">
-            <h3 class="title">Gold Plated Kada</h3>
-            <div class="price">₹236 <span class="price-old">₹444</span></div>
-            <div class="actions">
-              <button class="btn btn-primary">Add to Cart</button>
-              <button class="btn btn-ghost">View</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card card reveal">
-          <div class="img-placeholder">Product image</div>
-          <div class="product-body">
-            <h3 class="title">Elegant Bangle</h3>
-            <div class="price">₹219 <span class="price-old">₹599</span></div>
-            <div class="actions">
-              <button class="btn btn-primary">Add to Cart</button>
-              <button class="btn btn-ghost">View</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- add more product-card blocks as needed -->
-      </div>
-    </section>
-
-    <!-- WHY CHOOSE US -->
-    <section id="why" class="container reveal">
-      <h2>Why Choose Us</h2>
-      <div class="feature-grid">
-        <div class="card reveal"><h4>Premium Quality</h4><p class="desc">Carefully curated materials and finishing.</p></div>
-        <div class="card reveal"><h4>Fast Shipping</h4><p class="desc">Reliable delivery across the country.</p></div>
-        <div class="card reveal"><h4>Secure Payments</h4><p class="desc">Multiple payment options and secure checkout.</p></div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="container reveal">
-      <h2>About Us</h2>
-      <p class="lead">We craft jewelry that celebrates moments. Timeless pieces with modern finishes.</p>
-      <div class="about-grid">
-        <div class="card reveal"><h4>Our Mission</h4><p class="desc">Create beautiful, accessible jewellery for every occasion.</p></div>
-        <div class="card reveal"><h4>Our Promise</h4><p class="desc">Quality, trust and customer delight.</p></div>
-      </div>
-    </section>
-
-    <!-- FOUNDERS -->
-    <section id="founders" class="container reveal">
-      <h2>Founders</h2>
-      <div class="founders-grid">
-        <div class="card founder-card reveal">
-          <div class="avatar">AB</div>
-          <h4>Alex Brown</h4>
-          <p class="desc">CEO &amp; Founder</p>
-        </div>
-        <div class="card founder-card reveal">
-          <div class="avatar">KM</div>
-          <h4>K. Mehta</h4>
-          <p class="desc">CTO &amp; Co-founder</p>
+    <div class="product-card card reveal">
+      <div class="img-placeholder">Product Image</div>
+      <div class="product-body">
+        <h3>Product Name</h3>
+        <p class="price">$149 <span class="price-old">$199</span></p>
+        <div class="actions">
+          <button class="btn btn-primary">Add to Cart</button>
         </div>
       </div>
-    </section>
-
-    <!-- BLOG -->
-    <section id="blog" class="container reveal">
-      <h2>Blog & Announcements</h2>
-      <div class="blog-grid">
-        <article class="card reveal">
-          <h3>Shipping Faster in 2025</h3>
-          <p class="desc">What we learned scaling to thousands of customers.</p>
-        </article>
-        <article class="card reveal">
-          <h3>New Bridal Collection</h3>
-          <p class="desc">Elegant designs for the big day.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="container reveal">
-      <h2>FAQ</h2>
-      <div class="faq-list">
-        <div class="faq-item card">
-          <button class="faq-question">How long does shipping take? <span class="toggle">+</span></button>
-          <div class="faq-answer">Typically 5–10 business days depending on location.</div>
-        </div>
-        <div class="faq-item card">
-          <button class="faq-question">What is the return policy? <span class="toggle">+</span></button>
-          <div class="faq-answer">Returns accepted within 7 days — items must be unused.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- NEWS -->
-    <section id="news" class="container reveal">
-      <h2>Press & News</h2>
-      <div class="card reveal">NP-Here featured in leading magazines. (Placeholder text)</div>
-    </section>
-
-    <!-- POLICY -->
-    <section id="policy" class="container reveal">
-      <h2>Policies</h2>
-      <div class="policy-grid">
-        <div class="card reveal"><h4>Privacy Policy</h4><p class="desc">We respect your privacy.</p></div>
-        <div class="card reveal"><h4>Refund Policy</h4><p class="desc">Clear refund terms for faulty items.</p></div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="container reveal">
-      <h2>Contact Us</h2>
-      <div class="contact-grid">
-        <form id="contactForm" class="card contact-form" aria-label="Contact form">
-          <input name="name" type="text" placeholder="Full name" required>
-          <input name="email" type="email" placeholder="Email address" required>
-          <input name="phone" type="tel" placeholder="Phone (optional)">
-          <textarea name="message" rows="5" placeholder="Your message" required></textarea>
-          <div style="display:flex;gap:.6rem;align-items:center">
-            <button class="btn btn-primary" type="submit">Send Message</button>
-            <div class="muted">Or email: <a href="mailto:hello@np-here.example">hello@np-here.example</a></div>
-          </div>
-        </form>
-
-        <aside class="card contact-info">
-          <h4>Keep In Touch</h4>
-          <p class="desc">+91 90169XXXXX<br>301, Product St, City, India</p>
-          <h4>Quick Links</h4>
-          <div class="quick-links">
-            <a href="#products">Products</a>
-            <a href="#collections">Collections</a>
-            <a href="#policy">Policy</a>
-          </div>
-        </aside>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>© <strong>NP-Here</strong> <span id="year"></span></div>
-      <nav class="quick-links" aria-label="Footer links">
-        <a href="#policy">Privacy</a>
-        <a href="#contact">Contact</a>
-      </nav>
     </div>
-  </footer>
+    <!-- Add more products as needed -->
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<!-- Collections -->
+<section class="container" id="collections">
+  <h2>Collections</h2>
+  <div class="collections-grid reveal">
+    <div class="card img-placeholder">Collection 1</div>
+    <div class="card img-placeholder">Collection 2</div>
+    <div class="card img-placeholder">Collection 3</div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="container" id="about">
+  <h2>About Us</h2>
+  <div class="card reveal">
+    <p>NeoJewels is a premium jewelry brand focusing on elegance, timeless designs, and high-quality craftsmanship.</p>
+  </div>
+</section>
+
+<!-- Founders -->
+<section class="container" id="founders">
+  <h2>Founders</h2>
+  <div class="founders-grid reveal">
+    <div class="card img-placeholder">Founder 1</div>
+    <div class="card img-placeholder">Founder 2</div>
+  </div>
+</section>
+
+<!-- Blog -->
+<section class="container" id="blog">
+  <h2>Latest Blog</h2>
+  <div class="blog-grid reveal">
+    <div class="card img-placeholder">Blog Post 1</div>
+    <div class="card img-placeholder">Blog Post 2</div>
+    <div class="card img-placeholder">Blog Post 3</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="container" id="faq">
+  <h2>FAQ</h2>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <div class="faq-question">What is the return policy?</div>
+      <div class="faq-answer">You can return products within 30 days of purchase.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-question">Do you ship internationally?</div>
+      <div class="faq-answer">Yes, we ship worldwide with tracking.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="container" id="contact">
+  <h2>Contact Us</h2>
+  <form class="card reveal">
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea placeholder="Your Message"></textarea>
+    <button class="btn btn-primary">Send Message</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer class="footer container">
+  <div class="footer-inner">
+    <div>© 2025 NeoJewels. All rights reserved.</div>
+    <div>
+      <a href="#home">Home</a> |
+      <a href="#products">Products</a> |
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
