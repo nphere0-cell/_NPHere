@@ -1,11 +1,3 @@
-const slides = document.querySelectorAll('#hero .slide');
-let i = 0;
-setInterval(()=> {
-  slides[i].classList.remove('active');
-  i = (i+1) % slides.length;
-  slides[i].classList.add('active');
-}, 5000);
-
 <section className="hero py-20 bg-gray-100 text-center">
   <h1 className="text-4xl font-bold mb-6">Eco-Friendly Candles for Every Mood</h1>
   <p className="text-lg mb-8">Handmade, plant-based, reusable jars, and customizable.</p>
@@ -44,16 +36,6 @@ import Head from "next/head";
       src={img.url}
       alt={img.alt || `Image of ${product.name}`} // Alt text added
       className="w-full h-auto object-cover mb-4 rounded-lg"
-        document.querySelectorAll('.add-to-cart').forEach(btn=>{
-  btn.addEventListener('click', e=>{
-    const id = btn.dataset.id;
-    // if using 3rd party cart, call their API here
-    let count = Number(localStorage.getItem('cartCount')||0) + 1;
-    localStorage.setItem('cartCount', count);
-    document.getElementById('cart-count').innerText = count;
-  })
-});
-
     />
   ))}
 </div>
@@ -116,12 +98,6 @@ document.querySelector('.contact-form').addEventListener('submit', e => {
 });
 
 // Newsletter form submit (demo only)
-document.getElementById('subscribe-form').addEventListener('submit', async e=>{
-  e.preventDefault();
-  const email = e.target.email.value;
-  await fetch('/api/subscribe', {method:'POST',body:JSON.stringify({email}), headers:{'Content-Type':'application/json'}});
-  alert('Thanks! Check your inbox for the code.');
-});
 
 document.querySelector('.newsletter-form').addEventListener('submit', e => {
   e.preventDefault();
